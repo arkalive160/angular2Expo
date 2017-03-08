@@ -1,0 +1,21 @@
+<div *ngFor="let champion of champions" >
+
+    <h2> Name:  {{champion.name |uppercase }} </h2>
+    <p>Class: {{champion.class}} </p>
+    <p>Title: {{champion.title}} </p>
+    
+    <!--<p>HP: {{champion.healt | currency:'USD':true }}</p> -->
+    
+    <p>HP: {{champion.healt | percent }}</p>
+    <p *ngIf=" champion.mana > 0">
+    {{champion.name}} Shouts: {{champion.CombatPhrase}} !!!
+    </p>
+    
+    <p *ngIf= "champion.mana === 0">
+    {{champion.name}} Shouts: I need more mana :( !!
+    </p>
+
+
+</div>
+
+<h2>Your group has killed {{partyKilled()}} Enemies !</h2>
