@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Champion } from '../classes/champion'
-import { CHAMPION_MOCK } from '../classes/championMock'
+//import { CHAMPION_MOCK } from '../classes/championMock'
+import {HerosDataService} from '../heros-data.service'
 
 @Component({
   selector: 'app-champion',
@@ -10,10 +11,10 @@ import { CHAMPION_MOCK } from '../classes/championMock'
 export class ChampionComponent implements OnInit {
 
   champions: Champion[];
-  constructor() { }
+  constructor( private myHeroDataServices: HerosDataService ) { }
 
   ngOnInit() {
-    this.champions = CHAMPION_MOCK;
+    this.champions = this.myHeroDataServices.getChampionMocks();
   }
   
     

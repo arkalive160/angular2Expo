@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Spell } from '../classes/spell';
-import { SPELL_MOCK } from '../classes/spellMock';
+// import { SPELL_MOCK } from '../classes/spellMock';
 import { Champion } from '../classes/champion'
+import {HerosDataService} from '../heros-data.service'
 
 @Component({
   selector: 'app-spell',
@@ -14,10 +15,10 @@ export class SpellComponent implements OnInit {
   
   spells: Spell[];
 
-  constructor() { }
+  constructor(private myHeroDataServices: HerosDataService) { }
 
   ngOnInit() {
-    this.spells = SPELL_MOCK;
+    this.spells = this.myHeroDataServices.getSpellMocks();
   }
   
   decreaseMana(spellCost) {

@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { ChampionComponent } from './champion/champion.component';
 import { SpellComponent } from './spell/spell.component';
 
+import {HerosDataService} from './heros-data.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,7 @@ import { SpellComponent } from './spell/spell.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [HerosDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
