@@ -6,27 +6,27 @@ export const SPELL_MOCK: Spell[] = [
         "id": 1,
         "champion_id": 1,
         "name": "thunderball",
-        "description" "hack teachers mackbook",
+        "description": "hack teachers mackbook",
         "manaCost": 40,
-        "image": "/image/thunderball.jpg"
+        "image": "/images/thunderball.jpg"
         
     },
     {
         "id": 2,
         "champion_id": 1,
         "name": "sleep deprivation",
-        "description" "Ensure a decent grade",
+        "description": "Ensure a decent grade",
         "manaCost": 100,
-        "image": "/image/sleep.jpg"
+        "image": "/images/sleep.jpg"
         
     },
     {
         "id": 3,
         "champion_id": 2,
         "name": "Students overwhelm",
-        "description" "Make them lose their minds",
+        "description": "Make them lose their minds",
         "manaCost": 140,
-        "image": "/image/overwhelm.jpg"
+        "image": "/images/overwhelm.jpg"
         
     }
 ]

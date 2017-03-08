@@ -19,5 +19,12 @@ export class SpellComponent implements OnInit {
   ngOnInit() {
     this.spells = SPELL_MOCK;
   }
+  
+  decreaseMana(spellCost) {
+    if( (this.championRef.mana - spellCost) < 0)
+      alert("recharge your mana");
+    else
+      this.championRef.mana -= spellCost;
+  }
 
 }

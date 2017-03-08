@@ -3,10 +3,14 @@
     
     <div *ngIf="championRef.id === spell.champion_id ">
         <div> {{spell.image}}</div>
+         <img [src]="spell.image" [alt]="spell.name" style="width:150px;height:150px;">
         <div>
             <h3>Throw Spell {{ spell.name }}</h3>
             <p>Description: {{ spell.description}}</p>
             <p>Mana Cost: {{ spell.manaCost }}</p>
+            
+            <button (click)="decreaseMana(spell.manaCost)"> Cast! </button>
+            
         </div>
     </div>
     

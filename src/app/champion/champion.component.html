@@ -4,12 +4,17 @@
     
     <p>pic: {{champion.pic}} </p>
     
+    <img [src]="champion.pic" [alt]="champion.name" style="width:304px;height:228px;">
+    
     <p>Class: {{champion.class}} </p>
     <p>Title: {{champion.title}} </p>
     
     <!--<p>HP: {{champion.healt | currency:'USD':true }}</p> -->
     
     <p>HP: {{champion.healt | percent }}</p>
+    
+    <p> Mana: {{champion.mana }}</p>
+    
     <p *ngIf=" champion.mana > 0">
     {{champion.name}} Shouts: {{champion.CombatPhrase}} !!!
     </p>
