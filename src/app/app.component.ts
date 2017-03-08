@@ -10,7 +10,9 @@ import { Component } from '@angular/core';
                 <h2> Name:  {{champion.name |uppercase }} </h2>
                 <p>Class: {{champion.class}} </p>
                 <p>Title: {{champion.title}} </p>
+                
                 <!--<p>HP: {{champion.healt | currency:'USD':true }}</p> -->
+                
                 <p>HP: {{champion.healt | percent }}</p>
                 <p *ngIf=" champion.mana > 0">
                 {{champion.name}} Shouts: {{champion.CombatPhrase}} !!!
@@ -23,11 +25,13 @@ import { Component } from '@angular/core';
               
               </div>
               
+              <h2>Your group has killed {{partyKilled()}} Enemies !</h2>
+              
             `
   
 })
 export class AppComponent {
-  title = 'My Hero Stats';
+  title = 'My Heros Stats';
   
   champions = [
     {
@@ -37,7 +41,8 @@ export class AppComponent {
       "class": "Magician",
       "CombatPhrase": "for the Grade!",
       "healt": 0.2,
-      "mana": 150
+      "mana": 150,
+      "enemiesKilled": 22
     },
     {
       "id":  2,
@@ -46,9 +51,20 @@ export class AppComponent {
       "class": "Demon",
       "CombatPhrase": "Everybody will lose >:D",
       "healt": 1,
-      "mana": 0
+      "mana": 0,
+      "enemiesKilled": 18
+      
     }
     ];
+    
+    partyKilled(){
+      let totalEnemiesKilled = 0;
+      
+      for (let champion of this.champions){
+        totalEnemiesKilled += champion.enemiesKilled;
+      }
+      return totalEnemiesKilled;
+    }
     
   
 }
