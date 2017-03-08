@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ChampionComponent } from './champion/champion.component';
+import { SpellComponent } from './spell/spell.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChampionComponent
+    ChampionComponent,
+    SpellComponent
   ],
   imports: [
     BrowserModule,

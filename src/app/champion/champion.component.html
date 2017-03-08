@@ -1,6 +1,9 @@
 <div *ngFor="let champion of champions" >
-
+    
     <h2> Name:  {{champion.name |uppercase }} </h2>
+    
+    <p>pic: {{champion.pic}} </p>
+    
     <p>Class: {{champion.class}} </p>
     <p>Title: {{champion.title}} </p>
     
@@ -14,6 +17,8 @@
     <p *ngIf= "champion.mana === 0">
     {{champion.name}} Shouts: I need more mana :( !!
     </p>
+    
+    <app-spell [championRef]=champion ></app-spell>
 
 
 </div>

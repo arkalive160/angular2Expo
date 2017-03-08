@@ -1,0 +1,13 @@
+
+<div *ngFor = "let spell of spells">
+    
+    <div *ngIf="championRef.id === spell.champion_id ">
+        <div> {{spell.image}}</div>
+        <div>
+            <h3>Throw Spell {{ spell.name }}</h3>
+            <p>Description: {{ spell.description}}</p>
+            <p>Mana Cost: {{ spell.manaCost }}</p>
+        </div>
+    </div>
+    
+</div>

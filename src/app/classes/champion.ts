@@ -1,3 +1,5 @@
+
+
 export class Champion {
     id:  number;
     name: string;
@@ -7,4 +9,5 @@ export class Champion {
     healt: number;
     mana: number;
     enemiesKilled: number;
+    pic: string;
 }
