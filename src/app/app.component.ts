@@ -7,9 +7,11 @@ import { Component } from '@angular/core';
               
               <div *ngFor="let champion of champions" >
               
-                <h2> Name:  {{champion.name}} </h2>
+                <h2> Name:  {{champion.name |uppercase }} </h2>
                 <p>Class: {{champion.class}} </p>
                 <p>Title: {{champion.title}} </p>
+                <!--<p>HP: {{champion.healt | currency:'USD':true }}</p> -->
+                <p>HP: {{champion.healt | percent }}</p>
                 <p *ngIf=" champion.mana > 0">
                 {{champion.name}} Shouts: {{champion.CombatPhrase}} !!!
                 </p>
@@ -34,7 +36,7 @@ export class AppComponent {
       "title": "The Angular Noble",
       "class": "Magician",
       "CombatPhrase": "for the Grade!",
-      "healt": 80,
+      "healt": 0.2,
       "mana": 150
     },
     {
@@ -43,9 +45,10 @@ export class AppComponent {
       "title": "The soul stealer",
       "class": "Demon",
       "CombatPhrase": "Everybody will lose >:D",
-      "healt": 300,
+      "healt": 1,
       "mana": 0
     }
     ];
+    
   
 }
