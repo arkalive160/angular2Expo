@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Champion } from '../classes/champion'
+import { CHAMPION_MOCK } from '../classes/championMock'
 
 @Component({
   selector: 'app-champion',
@@ -7,34 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChampionComponent implements OnInit {
 
+  champions: Champion[];
   constructor() { }
 
   ngOnInit() {
+    this.champions = CHAMPION_MOCK;
   }
   
-  champions = [
-    {
-      "id":  1,
-      "name": "Arka160",
-      "title": "The Angular Noble",
-      "class": "Magician",
-      "CombatPhrase": "for the Grade!",
-      "healt": 0.2,
-      "mana": 150,
-      "enemiesKilled": 22
-    },
-    {
-      "id":  2,
-      "name": "Neos",
-      "title": "The soul stealer",
-      "class": "Demon",
-      "CombatPhrase": "Everybody will lose >:D",
-      "healt": 1,
-      "mana": 0,
-      "enemiesKilled": 18
-      
-    }
-    ];
     
     partyKilled(){
       let totalEnemiesKilled = 0;
