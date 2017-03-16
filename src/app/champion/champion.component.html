@@ -1,31 +1,57 @@
-<div *ngFor="let champion of champions" >
-    
+<h2>Your group has killed {{partyKilled()}} Enemies !</h2>
+
+<tabset>
+  <tab *ngFor="let champion of champions" [heading]="champion.name">
+      
     <h2> Name:  {{champion.name |uppercase }} </h2>
     
-    <p>pic: {{champion.pic}} </p>
+    <div class="col-sm-6">
+        
+        <div class="col-sm-4">
+            <img [src]="champion.pic" [alt]="champion.name" style="width:304px;height:228px;">
+        </div >
+
+        <div class="col-sm-8">
+            
+            <h4>Healt: </h4>
+            <progressbar type="success" max="1" [value]="champion.healt">
+                <span>{{champion.healt  | percent}}</span>
+            </progressbar>
+            
+            <h4>Mana: </h4>
+            <progressbar [max]="maxMana" [value]="champion.mana">
+                <span>{{champion.mana}}/{{maxMana}}</span>
+            </progressbar>
+            
+            <h4>
+                Class: <span>{{champion.class}} </span>
+            </h4> 
+            
+            <h4>
+                Title: <span> {{champion.title}} </span>
+            </h4>
+            
+            <p *ngIf=" champion.mana > 0">
+                {{champion.name}} Shouts: {{champion.CombatPhrase}} !!!
+            </p>
+            
+            <p *ngIf= "champion.mana === 0">
+                {{champion.name}} Shouts: I need more mana :( !!
+            </p>
+            
+            
+        </div>
+        
+    </div>
     
-    <img [src]="champion.pic" [alt]="champion.name" style="width:304px;height:228px;">
-    
-    <p>Class: {{champion.class}} </p>
-    <p>Title: {{champion.title}} </p>
-    
-    <!--<p>HP: {{champion.healt | currency:'USD':true }}</p> -->
-    
-    <p>HP: {{champion.healt | percent }}</p>
-    
-    <p> Mana: {{champion.mana }}</p>
-    
-    <p *ngIf=" champion.mana > 0">
-    {{champion.name}} Shouts: {{champion.CombatPhrase}} !!!
-    </p>
-    
-    <p *ngIf= "champion.mana === 0">
-    {{champion.name}} Shouts: I need more mana :( !!
-    </p>
-    
-    <app-spell [championRef]=champion ></app-spell>
+    <div class="col-sm-6">
+        <h1>Spells </h1>
+        <app-spell [championRef]=champion ></app-spell>
+    </div>
+      
+  </tab>
+  
+</tabset>
 
 
-</div>
 
-<h2>Your group has killed {{partyKilled()}} Enemies !</h2>

@@ -1,17 +1,27 @@
+<accordion>
+    <div *ngFor = "let spell of spells">   
+        <accordion-group #group  *ngIf="championRef.id === spell.champion_id">
+              
+            <div accordion-heading>
+              {{ spell.name }}
+              <i class="pull-right float-xs-right glyphicon" [ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}"></i>
+            </div>
+            
+            <div class="col-sm-3">
+                 <img [src]="spell.image" [alt]="spell.name" style="width:150px;height:150px;">
+            </div>
+             
+            <div class="col-sm-6">
+            
+                <h3>Throw Spell {{ spell.name }}</h3>
+                <p>Description: {{ spell.description}}</p>
+                <p>Mana Cost: {{ spell.manaCost }}</p>
+                
+                <button type="button" class="btn btn-warning" (click)="decreaseMana(spell.manaCost)"> Cast! </button>
+                
+            </div>
+            
+        </accordion-group>
+    </div>  
+</accordion>
 
-<div *ngFor = "let spell of spells">
-    
-    <div *ngIf="championRef.id === spell.champion_id ">
-        <div> {{spell.image}}</div>
-         <img [src]="spell.image" [alt]="spell.name" style="width:150px;height:150px;">
-        <div>
-            <h3>Throw Spell {{ spell.name }}</h3>
-            <p>Description: {{ spell.description}}</p>
-            <p>Mana Cost: {{ spell.manaCost }}</p>
-            
-            <button (click)="decreaseMana(spell.manaCost)"> Cast! </button>
-            
-        </div>
-    </div>
-    
-</div>

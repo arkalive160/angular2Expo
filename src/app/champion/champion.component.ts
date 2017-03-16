@@ -9,6 +9,8 @@ import {HerosDataService} from '../heros-data.service'
   styleUrls: ['./champion.component.css']
 })
 export class ChampionComponent implements OnInit {
+  
+  maxMana = 300 ;
 
   champions: Champion[];
   constructor( private myHeroDataServices: HerosDataService ) { }
